@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 10%;
+            background-image: url("gettyimages-1038089212-170667a.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+           
+            
+        }
+        h2:hover {
+          color: brown;
+         
+        }
+        button:hover {
+           color: aqua;
+           opacity: 0.1; 
+        }
+        p {
+            display: none;
+        }
+        div:hover p{
+            display: block;
+            color: rgb(243, 17, 17);
+            font-size: 6mm;
+            font-style: italic;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div style="line-height: 10mm;border: solid black 1mm ;box-shadow: black 0 0 10px;">
+    
+    <h2>This is my from</h2>
+    <from>
+        
+        <lable>Name</lable>
+        <input type="text" name="Name" placeholder="enter your name"required minlength="5" pattern="[a-Z]"/>
+    </br>
+    <label>password</label>
+    
+    <input type="password" minlength="8" pattern=""[a-Z]><br>
+    <label>Email</label>
+    
+    <input type="email" pattern=".+@mail.com"required/></br>
+    <label> Phone number</label>
+    
+    +91<input type="tel" pattern="[0-9]" required minlength="10" maxlength="10"><br>
+
+    <lable for="selector"> select the product</lable>
+    <select id="selector">
+    <option value="car">car</option>
+    <option value="bike">bike</option>
+    <option value="cycle">cycle</option>
+    <option value="truck">truck</option>
+    </select></from><br>
+    <button type="submit">submit</button>
+    <div>
+        <h1>hey guys! hover on me</h1>
+        <p>RUTUJA PATHARE</p>
+    </div>
+    </div>
+</from>
+</body>
+</html>
