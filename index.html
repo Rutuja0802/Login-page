@@ -1,84 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <style>
-        body {
-            text-align: center;
-          margin: 0%;
-            background-image: url("teahub.io-moving-bubbles-wallpaper-2820540.png");
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>TODO List</title>
+   <style>
+       
+        body{
+            background-image: url("https://codetea.com/content/images/2017/10/20171009211121.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
+        }
+        .main{
+            width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            box-shadow: 0 0 10px black;
+            padding: 30px;
+            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+           border-radius: 25px;
+           height: auto;
+        }
+        .main:hover{
+            background: linear-gradient(to right, #08ee1b, #f04511, #f6704f);
+            width:650px;
+            margin: 120px auto;
+            height: auto;
+        }
+        div{
+            text-align: center;
+            padding-left: 70px;
+            padding-bottom: 10px;
+        }   
+        button{
+            margin-left: 10px;
+            border-radius: 25px;
+        }
+        button:hover{
+            background-color:rgb(230, 208, 18);
+        }
+        span{
+            margin-left: -57px;
+            color: rgb(9, 8, 70);
+            text-shadow: 2px 2px #16f10e;
         
-            
-           
-            
         }
-        #container {
-            margin: 200px 500px 0 500px;
-            line-height: 10mm;
-            border: solid black 1mm ;
-            box-shadow: black 0 0 20px;
-             background-color: rgb(191, 238, 153);
-             
+        h1{
+            text-shadow: 2px 2px #6ff13b;
         }
-        h2:hover {
-          color: brown;
-         
+        input{
+            border-radius: 25px;
         }
-        button:hover {
-           color: aqua;
-           opacity: 0.1; 
-        }
-        p {
-            display: none;
-        }
-        div:hover p{
-            display: block;
-            color: rgb(243, 17, 17);
-            font-size: 6mm;
-            font-style: italic;
-            
+        label{
+            font-size: 28px;
+            text-shadow: 2px 2px #64f304;
+            color: coral;
         }
 
-    </style>
+   </style>
 </head>
-<body>
-    <div id="container">
-    
-    <h2>This is my from</h2>
-    <from>
-        
-        <lable>Name</lable>
-        <input type="text" name="Name" placeholder="enter your name"required minlength="5" pattern="[a-Z]"/>
-    </br>
-    <label>password</label>
-    
-    <input type="password" minlength="8" pattern=""[a-Z]><br>
-    <label>Email</label>
-    
-    <input type="email" pattern=".+@mail.com"required/></br>
-    <label> Phone number</label>
-    
-    +91<input type="tel" pattern="[0-9]" required minlength="10" maxlength="10"><br>
 
-    <lable for="selector"> select the product</lable>
-    <select id="selector">
-    <option value="car">car</option>
-    <option value="bike">bike</option>
-    <option value="cycle">cycle</option>
-    <option value="truck">truck</option>
-    </select></from><br>
-    <button type="submit">submit</button>
-    <div>
-        <h1>hey guys! hover on me</h1>
-        <p>RUTUJA PATHARE</p>
+<body>
+    <div class="main">
+    <h1><span class="title">To-do</span> List</h1>
+    <div class="inputDiv">
+    	 <label> Enter Text:</label> <input type="text" class="input">
+    	   <button class="add">Add New Element</button><br>
+           <span id="error"></span>
     </div>
+    <div class="container">
     </div>
-</from>
+    <script>
+        const container = document.querySelector('.container');
+var inputValue = document.querySelector('.input');
+const add = document.querySelector('.add');
+class item{
+constructor(name){
+this.createItem(name);
+}
+createItem(name){
+var itemBox = document.createElement('div');
+itemBox.classList.add('item');
+
+var input = document.createElement('input');
+input.type = "text";
+input.disabled = true;
+input.value = name;
+input.classList.add('item_input');
+
+var edit = document.createElement('button');
+edit.classList.add('edit');
+edit.innerHTML = "Edit";
+edit.addEventListener('click', () => this.edit(input, name));
+
+var remove = document.createElement('button');
+remove.classList.add('remove');
+remove.innerHTML = "Remove";
+remove.addEventListener('click', () => this.remove(itemBox, name));
+
+container.appendChild(itemBox);
+
+itemBox.appendChild(input);
+itemBox.appendChild(edit);
+itemBox.appendChild(remove);
+
+}
+
+edit(input, name){
+if(input.disabled == true){
+   input.disabled = !input.disabled;
+}
+else{
+    input.disabled = !input.disabled;
+   
+}
+}
+
+ remove(itemBox, name){
+itemBox.parentNode.removeChild(itemBox);
+ }
+}
+
+add.addEventListener('click', check);
+window.addEventListener('keydown', (e) => {
+if(e.which == 13){
+check();
+}
+})
+
+function check(){
+if(inputValue.value=="")
+    {
+        document.getElementById("error").innerHTML="Please Enter the value";
+        return;
+    } else
+    {
+        document.getElementById("error").innerHTML="";
+        new item(inputValue.value);
+    }
+}
+for (var v = 0 ; v < input.length ; v++){
+new item(input[v]);
+}
+    </script>
+</div>             
 </body>
 </html>
